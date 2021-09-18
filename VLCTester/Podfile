@@ -1,0 +1,7 @@
+source 'https://github.com/CocoaPods/Specs.git'
+project '/Users/ShayBC/dev/tvos/VLCTester/VLCTester.xcodeproj'
+target 'VLCTester' do
+    platform :tvos, '10.2'
+    pod 'TVVLCKit', '~>3.3.0'
+end
+

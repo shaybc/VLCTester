@@ -1,0 +1,63 @@
+- instructions found at: https://code.videolan.org/videolan/VLCKit#installation were not helpful,
+but this video helped allot: https://www.youtube.com/watch?v=TmdSnCw-Mjw
+
+- open terminal, run cmd:
+
+sudo gem install cocoapods
+
+
+
+- write and save a file with tha name: "Podfile" into your project home folder, with the content:
+
+source 'https://github.com/CocoaPods/Specs.git'
+project '~/VLCTester/VLCTester.xcodeproj'
+target 'VLCTester' do
+    platform :tvos, '10.2'
+    pod 'TVVLCKit', '~>3.3.0'
+end
+
+
+
+- make sure to replace project with your project file path
+- make sure to replace target with the name of the TVKit target name
+
+
+
+- cd to project folder (to folder where Podfile is located) and run the command:
+
+pod install
+
+
+
+- close xcode and use created file: xcworkspace for this project from now on
+
+
+
+- make sure you project has the following dependencies (project file -> target -> general -> 'frameworks libraries and embeded content'):
+
+AudioToolbox.framework
+AVFoundation.framework
+CFNetwork.framework
+CoreFoundation.framework
+CoreGraphics.framework
+CoreMedia.framework
+CoreText.framework
+CoreVideo.framework
+Foundation.framework
+libbz2.tbd
+libc++.tbd
+libiconv.tbd
+libxml2.tbd
+OpenGLES.framework
+QuartzCore.framework
+Security.framework
+VideoToolbox.framework
+UIKit.framework
+
+
+
+- lastly create new file (file -> new -> file) choose 'Objective-C file' name it 'header' and press create, choose 'create bridging header'
+- at the created file (VLCTester-Bridging-Header.h) add the import line: 
+#import "TVVLCKit/TVVLCKit.h"
+
+
